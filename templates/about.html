@@ -57,19 +57,13 @@ div:target {
 
 
 <table WIDTH="600">
-<tr> <td ALIGN="center"><a href="/about"><IMG SRC="static/logo_text.svg" WIDTH="400"></a></td></tr>
+<tr> <td ALIGN="center"><a href="/"><IMG SRC="static/logo_text.svg" WIDTH="400"></a></td></tr>
 
 <tr HEIGHT="15"></tr>
 
 <tr>
     <td>
-        <p> <font FACE="Segoe UI Symbol" SIZE="4" COLOR="White"><a href="/">← Return Home</a></font> </p>
-    </td>
-</tr>
-
-<tr>
-    <td>
-        <p> <font FACE="Segoe UI Symbol" SIZE="7" COLOR="White">harmonize.io Explained</font> </p>
+        <p id="explained"> <font FACE="Segoe UI Symbol" SIZE="7" COLOR="#06A1DB"><a href="#explained" style="text-decoration: none">harmonize.io Explained</a></font> </p>
     </td>
 </tr>
 
@@ -77,22 +71,22 @@ div:target {
 
 <tr>
     <td>
-        <p id="about" style="LINE-HEIGHT:27px"> <font FACE="Segoe UI Symbol" SIZE="4" COLOR="White"> &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; harmonize.io is a web application that takes in any <a href="#melody">melody</a> uploaded by the user as an input and returns a <a href="#harmonize">harmonized</a> version of the melody. It takes an uploaded melody as a MIDI file along with additional parameters such as the rhythm of the harmonies as input and return a MIDI file of the harmonized melody as the output. It is intended for music composers with a wide range of skills and knowledge starting from novice composers who are not aware of how harmony can be used to expert composers who can use this tool for fresh and innovative harmonies.</font> </p>
-        <p> <font FACE="Segoe UI Symbol" SIZE="7" COLOR="White">How It Works</font> </p>
-        <p id="howitworks" style="LINE-HEIGHT:27px"> <font FACE="Segoe UI Symbol" SIZE="5" COLOR="White">The algorithm that harmonizes <em>any</em> melody was designed using two musical concepts:</font> </p>
+        <p style="LINE-HEIGHT:27px"> <font FACE="Segoe UI Symbol" SIZE="4" COLOR="White"> &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; harmonize.io is a web application that takes in any <a href="#melody">melody</a> uploaded by the user as an input and returns a <a href="#harmonize">harmonized</a> version of the melody. It takes an uploaded melody as a <a href="#midi">MIDI</a> file along with additional parameters such as the rhythm of the harmonies as input and returns a <a href="#midi">MIDI</a> file of the harmonized melody as the output. It is intended for music composers with a wide range of skills and knowledge starting from novice composers who are not aware of how harmony can be used to expert composers who can use this tool for fresh and innovative harmonies.</font> </p>
+        <p id="howitworks"> <font FACE="Segoe UI Symbol" SIZE="7" COLOR="#06A1DB"><a href="#howitworks" style="text-decoration: none">How It Works</a></font> </p>
+        <p style="LINE-HEIGHT:27px"> <font FACE="Segoe UI Symbol" SIZE="5" COLOR="White">The algorithm that harmonizes <em>any</em> melody was designed using two musical concepts:</font> </p>
         <ul>
-            <li style="color:white"><p id="howitworks" style="LINE-HEIGHT:27px"> <font FACE="Segoe UI Symbol" SIZE="4" COLOR="White">Strong Voice Leadings</font> </p></li>
+            <li style="color:white"><p style="LINE-HEIGHT:27px"> <font FACE="Segoe UI Symbol" SIZE="4" COLOR="White">Strong Voice Leadings</font> </p></li>
             <ul>
-                <li style="color:white"><p id="howitworks" style="LINE-HEIGHT:27px"> <font FACE="Segoe UI Symbol" SIZE="3" COLOR="White">The harmonies move in step-wise motion. This means that each harmony note moves gradually from one note to the next. For our ears, this sounds very pleasant each individual harmony note is moving in small steps which forms a cohesive line, similar to that of a melody or bassline.</font> </p></li>
+                <li style="color:white"><p style="LINE-HEIGHT:27px"> <font FACE="Segoe UI Symbol" SIZE="3" COLOR="White">The harmonies move in step-wise motion. This means that each harmony note moves gradually from one note to the next. For our ears, this sounds very pleasant as each individual harmony note is moving in small steps which forms a cohesive line, similar to that of a melody or bassline.</font> </p></li>
             </ul>
-            <li style="color:white"><p id="howitworks" style="LINE-HEIGHT:27px"> <font FACE="Segoe UI Symbol" SIZE="4" COLOR="White">Consonance & Dissonance</font> </p></li>
+            <li style="color:white"><p style="LINE-HEIGHT:27px"> <font FACE="Segoe UI Symbol" SIZE="4" COLOR="White">Consonance & Dissonance</font> </p></li>
             <ul>
-                <li style="color:white"><p id="howitworks" style="LINE-HEIGHT:27px"> <font FACE="Segoe UI Symbol" SIZE="3" COLOR="White">Like any story, music, built with melodies and harmonies, needs to have tension and release for an interesting and engaging narrative. This, using harmony, is achieved through the usage of consonant (pleasant-sounding) harmonies and dissonant (tense-sounding) harmonies. When planned well, building up tension through dissonant harmonies and releasing it through consonant ones can result in pleasing and engaging music.</font> </p></li>
+                <li style="color:white"><p style="LINE-HEIGHT:27px"> <font FACE="Segoe UI Symbol" SIZE="3" COLOR="White">Like any story, music, built with melodies and harmonies, needs to have tension and release for an interesting and engaging narrative. This, using harmony, is achieved through the usage of consonant (pleasant-sounding) harmonies and dissonant (tense-sounding) harmonies. When planned well, building up tension through dissonant harmonies and releasing it through consonant ones can result in pleasing and engaging music.</font> </p></li>
             </ul>
         </ul>
-        <p id="howitworks" style="LINE-HEIGHT:27px"> <font FACE="Segoe UI Symbol" SIZE="5" COLOR="White">These abstract musical concepts were analysed and codified into an algorithm written in the Python programming language.</font> </p>
+        <p style="LINE-HEIGHT:27px"> <font FACE="Segoe UI Symbol" SIZE="5" COLOR="White">These abstract musical concepts were analysed and codified into an algorithm written in the Python programming language.</font> </p>
         
-        <p> <font FACE="Segoe UI Symbol" SIZE="7" COLOR="White">Glossary</font> </p>
+        <p id="terminology"> <font FACE="Segoe UI Symbol" SIZE="7" COLOR="#06A1DB"><a href="#terminology" style="text-decoration: none">Terminology</a></font> </p>
         
         <div id="melody" style="padding-left: 18px; padding-top: 1px; padding-bottom: 1px;">
             <p> <font FACE="Segoe UI Symbol" SIZE="5" COLOR="White">Melody</font> </p>
@@ -103,12 +97,18 @@ div:target {
             <p> <font FACE="Segoe UI Symbol" SIZE="5" COLOR="White">Harmonize</font> </p>
             <p> <font FACE="Segoe UI Symbol" SIZE="4" COLOR="White">To <em>harmonize</em> is to add additional musical notes to the melody that are played along with the melody to produce a pleasing and fuller sound.</font> </p>
         </div>
+        
+        <div id="midi" style="padding-left: 18px; padding-top: 1px; padding-bottom: 1px;">
+            <p> <font FACE="Segoe UI Symbol" SIZE="5" COLOR="White">MIDI</font> </p>
+            <p> <font FACE="Segoe UI Symbol" SIZE="4" COLOR="White"><em>MIDI</em>, short for Musical Instrument Digital Interface is a file type that is used in digital music production. harmonize.io uses it when accepting an input file, processing it, harmonizing it and also returns the harmonized melody as a MIDI file.</font> </p>
+        </div>
     </td>
 </tr>
 <tr height="15"/>
+
 <tr>
-    <td>
-        <p> <font FACE="Segoe UI Symbol" SIZE="4" COLOR="White"><a href="/">← Return Home</a></font> </p>
+    <td align="left">
+        <p> <font FACE="Segoe UI Symbol" SIZE="6" COLOR="White"><a href="/main">Harmonize a Melody →</a></font> </p>
     </td>
 </tr>
 
@@ -117,7 +117,7 @@ div:target {
 <tr>
     <td>
     <div class="full-height">
-        <div class="relative" align="center"><a href="/"><IMG src="static/logo_cropped_rectangle_no_text.svg" width="200"></a></div>
+        <div class="relative" align="center"><a href="/main"><IMG src="static/logo_cropped_rectangle_no_text.svg" width="200"></a></div>
     </div>
     </td>
 </tr>

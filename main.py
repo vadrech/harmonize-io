@@ -1,7 +1,7 @@
 def MidiToCsv(file):
     import py_midicsv as pm
     import pandas as pd
-    
+
     csv_file = pm.midi_to_csv(file)
     
     dataframe = pd.DataFrame([sub.split(",") for sub in csv_file])
@@ -478,6 +478,9 @@ def Harmonizer(file, harmonies_per_bar, number_of_harmonies, tolerance, harmony_
 from flask import Flask, render_template, request, send_file, redirect
 from time import strftime
 import os
+import sys
+import logging
+
 
 if not os.path.exists("HarmonizedMelodies"):
     os.mkdir("HarmonizedMelodies")
@@ -489,12 +492,32 @@ app = Flask(__name__, static_url_path="/static")
 
 @app.route("/")
 def home():
+    return render_template("about.html")
+
+@app.route("/main")
+def main():
     global filename
     filename = "NOPENOTGONNAWORKNOWAMI"
+    
     return render_template("home.html", message="")
 
-@app.route('/', methods = ['GET', 'POST'])
+@app.route('/main-list', methods = ['GET', 'POST'])
+def list_file():
+    global original_filename, filename
+
+    if request.method == 'POST':
+        
+        original_filename = request.form["choice_from_list"]
+        
+        filename = "melody_from_list"
+        
+        return render_template("home.html", message=original_filename)
+
+
+@app.route('/main-upload', methods = ['GET', 'POST'])
 def upload_file():
+    global original_filename    
+
     if request.method == 'POST':
         try:
             f = request.files['file']
@@ -505,23 +528,16 @@ def upload_file():
             
             f.save(os.path.join("SubmittedMelodies/", filename))
             
-            global original_filename
-            
             if f.filename[-4:] == ".mid":
                 original_filename = f.filename[:-4]
             elif f.filename[-4:] == "midi":
                 original_filename = f.filename[:-5]
 
-            
             return render_template("home.html", message=original_filename)
         
         except KeyError:
             return render_template("home.html", message="Please upload a MIDI file!")
-      
-@app.route("/about")
-def about():
-    return render_template("about.html")
- 
+        
     
 @app.route('/harmonize', methods = ['GET', 'POST'])
 def harmonize():
@@ -529,7 +545,12 @@ def harmonize():
         if filename == "NOPENOTGONNAWORKNOWAMI":
             return render_template("home.html", message="Please upload a MIDI file!")
         
-        file = os.path.join("SubmittedMelodies/", filename)
+        if filename == "melody_from_list":
+            file = os.path.join("StandardMelodies/", original_filename)
+            file = file + ".mid"
+        
+        else:
+            file = os.path.join("SubmittedMelodies/", filename)
         
         global return_file_name
         return_file_name = Harmonizer(file = file, harmonies_per_bar = float(request.form["number_of_harmonies_per_bar"]), number_of_harmonies = int(request.form["number_of_harmony_notes"]), tolerance = float(request.form["tolerance"]), harmony_velocities = int(request.form["harmony velocity"]), melody_velocities = int(request.form["melody velocity"]), number_of_melody_notes_to_consider = int(request.form["relevant notes"]))
@@ -544,6 +565,8 @@ def HarmonizedMelodyRedirect():
 @app.route('/Harmonized-Melody')
 def HarmonizedMelody():
     return send_file(filename_or_fp = return_file_name, as_attachment=True, attachment_filename=(original_filename + " - Harmonized.mid"), cache_timeout = 0)
-
+    
+app.logger.addHandler(logging.StreamHandler(sys.stdout))
+app.logger.setLevel(logging.ERROR)
     
     

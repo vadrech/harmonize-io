@@ -59,6 +59,11 @@ select {
   height: 25px;
 }
 
+select option {
+    background: white;
+
+}
+
 select:focus {
   border-bottom: 3px solid #E2A800;
 }
@@ -76,22 +81,28 @@ input{
 input:focus {
   border-bottom: 3px solid #E2A800;
 }
+
+sup{
+  vertical-align: super; 
+  font-size: small; 
+
+}
 </style>
 
-<body style="background-color:#000000;">
+<body style="background-color:#000000;" vlink="#06A1DB" alink="#F6B700" link="#06A1DB">
 
 <center>
 
 <title>harmonize.io</title>
 
 <table WIDTH="600">
-<tr> <td ALIGN="center"><a href="/about"><IMG SRC="static/logo_text.svg" WIDTH="400"></a></td></tr>
+<tr> <td ALIGN="center"><a href="/"><IMG SRC="static/logo_text.svg" WIDTH="400"></a></td></tr>
 
 <tr HEIGHT="15"></tr>
 
 <tr>
     <td ALIGN="center">
-        <p ALIGN="center"> <font FACE="Segoe UI Symbol" SIZE="6" COLOR="White">Upload a MIDI file with a Melody</font> </p>
+        <p ALIGN="center"> <font FACE="Segoe UI Symbol" SIZE="6" COLOR="White">Upload a </font><a href="/#midi" style="text-decoration: none"><font FACE="Segoe UI Symbol" SIZE="6" COLOR="White">MIDI<sup>&#x1f6c8;</sup></font></a><font FACE="Segoe UI Symbol" SIZE="6" COLOR="White"> file with a Melody</font> </p>
     </td>
 </tr>
 
@@ -101,13 +112,20 @@ input:focus {
 <tr>
     <td ALIGN="center">
         <div class="image-upload">
-            <form action="/" method="POST" enctype="multipart/form-data" id="upload_form_id">
+            <form action="/main-upload" method="POST" enctype="multipart/form-data" id="upload_form_id">
                 <label for="file-input">
                     <img src="static/button_upload.svg" height="80" align="middle"/>
                 </label>
                 <input id="file-input" type="file" name="file" accept=".mid,.midi" onchange="UploadFormSubmit()"/>
-            </form>
         </div>
+            </form>
+            <form action="/main-list" method="POST" enctype="multipart/form-data" id="select_file_form_id">
+                <label><p> <font FACE="Segoe UI Symbol" SIZE="5" COLOR="White">OR Select from a List of Standard Melodies:</font></p></label>
+                <select style="float: none;" onchange="ListFormSubmit()" name="choice_from_list">
+                    <option value = "Choose a Melody" selected="selected" disabled>Choose a Melody</option>
+                    <option value = "Happy Birthday">Happy Birthday</option>
+                </select>
+            </form>
     </td>
 </tr>
 
@@ -203,6 +221,9 @@ function UploadFormSubmit() {
   document.getElementById("upload_form_id").submit();
 }
 
+function ListFormSubmit() {
+  document.getElementById("select_file_form_id").submit();
+}
 
 
 
@@ -234,11 +255,18 @@ images[8] = "static/changing_logo_1.svg";
 
 </script>
 
+<tr>
+    <td>
+        <p> <font FACE="Segoe UI Symbol" SIZE="4" COLOR="White"><a href="/">← Return Home</a></font> </p>
+    </td>
+</tr>
+
+
 <tr height="15"/>
 <tr>
     <td>
     <div class="full-height">
-        <div class="relative" id="ol" align="center"><a href="/"><IMG src="static/logo_cropped_rectangle_no_text.svg" width="200"></a></div>
+        <div class="relative" id="ol" align="center"><a href="/main"><IMG src="static/logo_cropped_rectangle_no_text.svg" width="200"></a></div>
         <div class="relative" id="imgdiv" align="center" style="display:none"><IMG src="static/changing_logo_1.svg" id="img" width="260"></div>
     </div>
     </td>
