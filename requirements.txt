@@ -7,4 +7,4 @@ MarkupSafe==1.1.1
 Werkzeug==0.16.0
 py-midicsv==1.10.0
 pandas==0.25.3
-numpy==1.18.1
+numpy==1.22.0
