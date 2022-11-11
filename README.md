@@ -14,6 +14,3 @@ The algorithm that harmonizes any melody was designed using two musical concepts
     - Like any story, music, built with melodies and harmonies, needs to have tension and release for an interesting and engaging narrative. This, using harmony, is achieved through the usage of consonant (pleasant-sounding) harmonies and dissonant (tense-sounding) harmonies. When planned well, building up tension through dissonant harmonies and releasing it through consonant ones can result in pleasing and engaging music.
 
 These abstract musical concepts were analysed and codified into an algorithm written in the Python programming language.
-
-Link to App: http://harmonize-io.herokuapp.com/
-
